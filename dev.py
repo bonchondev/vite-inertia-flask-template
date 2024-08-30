@@ -1,0 +1,5 @@
+INERTIA_TEMPLATE = "base.html"
+SECRET_KEY = "changeme"
+VITE_AUTO_INSERT = True
+VITE_NPM_BIN_PATH = "pnpm"
+# TEMPLATES_AUTO_RELOAD = True
