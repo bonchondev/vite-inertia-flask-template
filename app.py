@@ -1,7 +1,7 @@
 """test."""
 
 from config import PUBLIC_FOLDER, STATIC_FOLDER, TEMPLATES
-from flask import Flask, send_from_directory
+from flask import Flask, current_app, send_from_directory
 from flask_inertia import Inertia, render_inertia
 from flask_vite import Vite
 
@@ -22,7 +22,7 @@ app = create_app('dev')
 
 @app.get('/')
 def index():
-    # ~pages~, api calls, ~tailwind~, ~props~
+    # ~pages~, ~api calls~, ~tailwind~, ~props~
     return render_inertia("Index", props={'amount': '$2,000'})
 
 @app.get('/about')

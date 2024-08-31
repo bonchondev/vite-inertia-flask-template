@@ -1,2 +1,3 @@
-Flask>=2.0.2
-flask_inertia>=0.4
+Flask==3.0.3
+flask-inertia==0.9
+flask-vite==0.5.1
