@@ -1,9 +1,21 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useQuery } from "@tanstack/vue-query";
+import ky from "ky";
+import { z } from "zod";
 const frameworkName = ref("Vue");
 defineProps<{
     amount: string;
 }>();
+
+const dataType = z.object({ dollars: z.number() });
+
+type Data = z.infer<typeof dataType>;
+
+const { data, isSuccess } = useQuery({
+    queryKey: ["data"],
+    queryFn: () => ky.post<Data>("/data").json(),
+});
 </script>
 
 <template>
@@ -15,6 +27,9 @@ defineProps<{
         <p class="info">
             For more information please visit the {{ amount }}
             <a href="https://flask-inertia.readthedocs.io/">documentation</a>
+        </p>
+        <p v-if="isSuccess" class="text-3xl text-pink-400">
+            {{ data?.dollars }}
         </p>
     </div>
 </template>

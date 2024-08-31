@@ -30,6 +30,10 @@ def about():
     return render_inertia("About", props={'amount': '$7,000'})
 
 
+@app.post('/data')
+def data():
+    return {'dollars': 100}
+
 @app.get("/<path:path>")
 def static_folder(path):
     return send_from_directory(STATIC_FOLDER, path)
