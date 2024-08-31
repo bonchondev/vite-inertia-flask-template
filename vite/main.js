@@ -1,3 +1,4 @@
+import "./app.css"
 import { createApp, h } from 'vue';
 // import type { App } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
